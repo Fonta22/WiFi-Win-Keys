@@ -1,0 +1,8 @@
+# binary
+*.zip
+*.vbe
+
+# files
+Wi-Fi*.xml
+ip.prop
+keys.csv
