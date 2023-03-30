@@ -42,7 +42,7 @@ KO.WriteLine(strOS & ", " & spk)
 Set fso = Nothing
 
 ' IP ADDRESS
-dim NIC1, Nic, StrIP, CompName
+Dim NIC1, Nic, StrIP, CompName
 Set NIC1 = GetObject("winmgmts:").InstancesOf("Win32_NetworkAdapterConfiguration")
 
 'Public
