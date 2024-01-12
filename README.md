@@ -2,7 +2,7 @@
 Tool to get the **activation key**, **SSID profiles** and **IP addresses** of a Windows computer.
 
 ## Usage
-Running `main.bat` will export the **SSID profiles** in **XML files**, and run `payload.vbs`, a *VBS script* which stores the **IP addresses** of the computer inside `ip.prop`, and the **Windows activation key** inside `keys.csv`.
+Running `main.bat` will export the **SSID profiles** in **XML files** and execute `payload.vbs`, a *VBS script* which stores the **IP addresses** of the computer inside `ip.prop`, and the **Windows activation key** inside `keys.csv`.
 
 Once all the data is stored in different files, they all get zipped in a **zip file** with the computer's name as filename.
 
